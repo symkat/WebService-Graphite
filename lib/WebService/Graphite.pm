@@ -9,10 +9,6 @@ has key => (
     is      => 'rw',
 );
 
-has host => (
-    is => 'ro',
-);
-
 has _backend => ( 
     is  => make_builder( sub {
             my ( $args ) = @_;
@@ -209,6 +205,55 @@ C<-E<gt>send( [ [ int ], [ int ] ] )>
 =item * Accepts: A graphite path
 
 =item * Default: Not set by default 
+
+=back
+
+=head2 warn_on_error
+
+When set to true, errors will be risen as warnings.
+
+=over 4
+
+=item * Accepts: 0 (false), 1 (true)
+
+=item * Default: 0 
+
+=back
+
+=head2 die_on_error
+
+When set to true, errors will be considered fatal.
+
+=over 4
+
+=item * Accepts: 0 (false), 1 (true)
+
+=item * Default: 1
+
+=back
+
+=head2 stacktrace_on_error
+
+When set to true stack traces are given through cluck or confess, as
+opposed to carp and croak for warn_on_error and die_on_error respectively.
+
+=over 4
+
+=item * Accepts: 0 (false), 1 (true)
+
+=item * Default: 0
+
+=back
+
+=head2 enable_trace
+
+When set to true, debug output will be send to STDERR.
+
+=over 4
+
+=item * Accepts: 0 (false), 1 (true)
+
+=item * Default: 0
 
 =back
 
