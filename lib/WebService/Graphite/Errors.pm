@@ -10,7 +10,7 @@ has warn_on_error => (
 has die_on_error => (
     is      => 'ro',
     isa     => sub { $_[0] == 0 || $_[0] == 1 },
-    default => sub { 0 },
+    default => sub { 1 },
 );
 
 has stacktrace_on_error => (
